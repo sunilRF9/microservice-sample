@@ -107,10 +107,10 @@ for k, i in enumerate(link):
         final['prod_meta'] = [prod_meta]
     except :
         final['prod_meta'] = ''
-    print(final)
+    #print(final)
     print(type(final))
     channel.basic_publish(exchange='', routing_key='scraper', body=json.dumps(final),properties=pika.BasicProperties(delivery_mode=2))
-    print('Pushed to Queue')
+    print('Pushed events to Queue')
 channel.close()
     #filename = f'flipkart_results_{today}.json'
     #with open(filename, 'a') as f:
